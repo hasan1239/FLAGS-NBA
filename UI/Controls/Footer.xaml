@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="FLAGS_NBA.UI.Controls.Footer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FLAGS_NBA.UI.Controls"
+             xmlns:properties="clr-namespace:FLAGS_NBA.Properties"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel Orientation="Horizontal">
+            <Button HorizontalAlignment="Right" Width="20" Margin="5" Background="Transparent" x:Name="btnSettings" Click="btnSettings_Click" BorderThickness="0">
+                <Button.Content>
+                    <Image Source="/Images/Icons/fav_icon.png" />
+                </Button.Content>
+            </Button>
+
+            <ToggleButton Margin="0,0,0,0" BorderThickness="0" Background="Transparent" ToolTip="Dark Mode" x:Name="tglBtnDarkMode" Checked="tglBtnDarkMode_Checked" Unchecked="tglBtnDarkMode_Unchecked">
+                <ToggleButton.Style>
+                    <Style TargetType="ToggleButton">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                    <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
+                                        <Grid>
+                                            <Image Source="/Images/Icons/dark_bulb.png" Height="20" x:Name="imgDarkBulb" />
+                                            <Image Source="/Images/Icons/light_bulb.png" Height="20" x:Name="imgLightBulb"/>
+                                        </Grid>
+                                    </Border>
+
+                                    <ControlTemplate.Triggers>
+                                        <DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=DarkTheme}" Value="True">
+                                            <Setter TargetName="imgDarkBulb" Property="Visibility" Value="Visible"/>
+                                            <Setter TargetName="imgLightBulb" Property="Visibility" Value="Collapsed"/>
+                                        </DataTrigger>
+
+                                        <DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=DarkTheme}" Value="False">
+                                            <Setter TargetName="imgDarkBulb" Property="Visibility" Value="Collapsed"/>
+                                            <Setter TargetName="imgLightBulb" Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ToggleButton.Style>
+                
+            </ToggleButton>
+        </StackPanel>
+
+        <Grid Grid.Column="1" HorizontalAlignment="Right">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,10,0">
+                <Image Source="/Images/Clock_96px.png" Height="15" Margin="0,0,5,0" />
+                <TextBlock x:Name="txtDateTime" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

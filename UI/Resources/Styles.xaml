@@ -1,0 +1,27 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:FLAGS_NBA.UI.Resources"
+                    xmlns:properties="clr-namespace:FLAGS_NBA.Properties">
+
+    <SolidColorBrush x:Key="LightBorderBrush" Color="#E5E5E5" />
+    
+    <Style TargetType="Border" x:Key="Border_Standard">
+        <Setter Property="Background" Value="White" />
+        <Setter Property="BorderBrush" Value="{StaticResource LightBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="UseLayoutRounding" Value="True" />
+
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=DarkTheme}" Value="True">
+                <Setter Property="Background" Value="Gray" />
+                <Setter Property="BorderBrush" Value="DarkGray"/>
+            </DataTrigger>
+
+            <DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=DarkTheme}" Value="False">
+                <Setter Property="Background" Value="White" />
+                <Setter Property="BorderBrush" Value="{StaticResource LightBorderBrush}" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>
