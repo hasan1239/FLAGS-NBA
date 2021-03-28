@@ -1,4 +1,4 @@
 # FLAGS-NBA
- NBA API
+ WPF .Net Application using NBA API
 
 By Hasan Tariq
