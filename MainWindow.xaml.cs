@@ -42,7 +42,7 @@ namespace FLAGS_NBA
             Switcher.Navigate(new WelcomePage());
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        /*private void Button_Click(object sender, RoutedEventArgs e)
         {
             Requests requests = new Requests();
             List<Player> players = requests.GetPlayersAsync("curry").Result;
@@ -51,6 +51,6 @@ namespace FLAGS_NBA
             List<Team> teams = requests.GetAllTeamsAsync().Result;
 
             string test = string.Empty;
-        }
+        }*/
     }
 }

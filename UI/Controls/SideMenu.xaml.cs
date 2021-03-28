@@ -81,5 +81,12 @@ namespace FLAGS_NBA.UI.Controls
                 Switcher.Navigate(PlayersPage);
             }
         }
+
+        private void IconTextBox_Click(object sender, RoutedEventArgs e)
+        {
+            string test = searchTextBox.Text;
+
+
+        }
     }
 }

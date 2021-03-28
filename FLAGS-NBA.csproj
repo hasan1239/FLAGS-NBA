@@ -74,6 +74,9 @@
     <Compile Include="UI\Controls\Footer.xaml.cs">
       <DependentUpon>Footer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Controls\IconTextBox.xaml.cs">
+      <DependentUpon>IconTextBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Controls\SideMenu.xaml.cs">
       <DependentUpon>SideMenu.xaml</DependentUpon>
     </Compile>
@@ -111,6 +114,10 @@
     <Page Include="UI\Controls\Footer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\IconTextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UI\Controls\SideMenu.xaml">
       <SubType>Designer</SubType>
@@ -181,24 +188,52 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Clock_96px.png" />
-    <Resource Include="Images\Icons\fav_icon.png" />
-    <Resource Include="Images\FLAGS_logo.png" />
-    <Resource Include="Images\Icons\search_Icon.png" />
+    <Resource Include="Images\Clock_96px.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icons\fav_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\FLAGS_logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icons\search_Icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Icons\basketball.png" />
-    <Resource Include="Images\Icons\basketball_hoop.png" />
-    <Resource Include="Images\Icons\basketball_player.png" />
-    <Resource Include="Images\Icons\basketball_players.png" />
-    <Resource Include="Images\Icons\basketball_strategy.png" />
-    <Resource Include="Images\Icons\basketball_UI.png" />
-    <Resource Include="Images\Icons\podium.png" />
-    <Resource Include="Images\Icons\whistle.png" />
+    <Resource Include="Images\Icons\basketball.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icons\basketball_hoop.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icons\basketball_player.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icons\basketball_players.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icons\basketball_strategy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icons\basketball_UI.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icons\podium.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icons\whistle.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Icons\dark_bulb.png" />
-    <Resource Include="Images\Icons\light_bulb.png" />
+    <Resource Include="Images\Icons\dark_bulb.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icons\light_bulb.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

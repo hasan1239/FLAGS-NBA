@@ -11,11 +11,6 @@ namespace FLAGS_NBA.Model
     {
         public static Grid pageSwitcher;
 
-        /*public static void Switch(UserControl newPage)
-        {
-            pageSwitcher.Navigate(newPage);
-        }*/
-
         public static void Navigate(UserControl newPage)
         {
             pageSwitcher.Children.Clear();
