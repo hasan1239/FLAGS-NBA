@@ -30,9 +30,9 @@ namespace FLAGS_NBA.API.Helper
             }
         }
 
-        internal async Task<List<Game>> GetGamesAsync(string teamId)
+        internal async Task<List<Game>> GetGamesAsync(string date)
         {
-            string endpoint = EndPoint(TargetTypes.games, SubTargetType.teamId, teamId);
+            string endpoint = EndPoint(TargetTypes.games, SubTargetType.date, date);
             var client = new HttpClient();
             HttpRequestMessage request = CreateRequest(endpoint);
 

@@ -101,16 +101,21 @@ namespace FLAGS_NBA.UI.Resources
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            int age = 0;
-            DateTime dateOfBirth = DateTime.Parse(value.ToString());
-
-            age = DateTime.Now.Year - dateOfBirth.Year;
-            if (DateTime.Now.DayOfYear < dateOfBirth.DayOfYear)
+            if (value != null && !string.IsNullOrEmpty(value.ToString()))
             {
-                age = age - 1;
+                int age = 0;
+                DateTime dateOfBirth = DateTime.Parse(value.ToString());
+
+                age = DateTime.Now.Year - dateOfBirth.Year;
+                if (DateTime.Now.DayOfYear < dateOfBirth.DayOfYear)
+                {
+                    age = age - 1;
+                }
+
+                return age;
             }
 
-            return age;
+            return DateTime.MinValue;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

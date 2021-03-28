@@ -3,6 +3,7 @@ using FLAGS_NBA.API.Objects;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,13 +22,17 @@ namespace FLAGS_NBA.UI.Windows
     /// <summary>
     /// Interaction logic for Players.xaml
     /// </summary>
-    public partial class PlayersPage : UserControl
+    public partial class PlayersPage : UserControl, INotifyPropertyChanged
     {
         private ObservableCollection<Player> players;
         public ObservableCollection<Player> Players
         {
             get { return players; }
-            set { players = value; }
+            set 
+            { 
+                players = value;
+                OnPropertyChanged("Players");
+            }
         }
 
         public PlayersPage()
@@ -87,5 +92,18 @@ namespace FLAGS_NBA.UI.Windows
                 new InfoWindow(player).ShowDialog();
             }
         }
+
+        #region INotifyPropertyChanged Members
+
+        // INotifyPropertyChanged event for auto refreshing changes to UI
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        // Create the OnPropertyChanged method to raise the event
+        public void OnPropertyChanged(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
+        #endregion
     }
 }

@@ -84,9 +84,20 @@ namespace FLAGS_NBA.UI.Controls
 
         private void IconTextBox_Click(object sender, RoutedEventArgs e)
         {
-            string test = searchTextBox.Text;
+            string searchText = searchTextBox.Text;
 
-
+            if (GamesPage != null)
+            {
+                GamesPage.Games = RequestHelper.GetGames(searchText);
+            }
+            else if (TeamsPage != null)
+            {
+                TeamsPage.Teams = RequestHelper.GetTeams(searchText);
+            }
+            else if (PlayersPage != null)
+            {
+                PlayersPage.Players = RequestHelper.GetPlayers(searchText);
+            }
         }
     }
 }

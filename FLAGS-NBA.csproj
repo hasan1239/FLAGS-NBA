@@ -70,6 +70,7 @@
     <Compile Include="API\Objects\League.cs" />
     <Compile Include="API\Objects\Player.cs" />
     <Compile Include="API\Objects\Team.cs" />
+    <Compile Include="Model\RequestHelper.cs" />
     <Compile Include="Model\Switcher.cs" />
     <Compile Include="UI\Controls\Footer.xaml.cs">
       <DependentUpon>Footer.xaml</DependentUpon>

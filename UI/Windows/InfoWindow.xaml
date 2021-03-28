@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FLAGS_NBA.UI.Windows"
         xmlns:con="clr-namespace:FLAGS_NBA.UI.Resources"
-        mc:Ignorable="d" x:Name="infoWindow" Style="{StaticResource WindowStyle}"
+        mc:Ignorable="d" x:Name="infoWindow" Style="{StaticResource WindowStyle}" WindowStartupLocation="CenterOwner"
         Title="{Binding ElementName=infoWindow, Path=TitleText}" MinHeight="450" Height="450" MinWidth="800" Width="800">
 
     <Window.Resources>

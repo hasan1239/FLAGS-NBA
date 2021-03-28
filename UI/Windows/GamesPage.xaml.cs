@@ -3,6 +3,7 @@ using FLAGS_NBA.API.Objects;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,13 +22,17 @@ namespace FLAGS_NBA.UI.Windows
     /// <summary>
     /// Interaction logic for Games.xaml
     /// </summary>
-    public partial class GamesPage : UserControl
+    public partial class GamesPage : UserControl, INotifyPropertyChanged
     {
         private ObservableCollection<Game> games;
         public ObservableCollection<Game> Games
         {
             get { return games; }
-            set { games = value; }
+            set 
+            { 
+                games = value;
+                OnPropertyChanged("Games");
+            }
         }
 
         public GamesPage()
@@ -35,7 +40,7 @@ namespace FLAGS_NBA.UI.Windows
             if (Games == null || Games.Count == 0)
             {
                 Requests requests = new Requests();
-                List<Game> playersList = requests.GetGamesAsync("11").Result;
+                List<Game> playersList = requests.GetGamesAsync("2020-01-14").Result;
                 Games = new ObservableCollection<Game>(playersList);
 
                 /*List<Game> gamesList = new List<Game>();
@@ -99,5 +104,18 @@ namespace FLAGS_NBA.UI.Windows
                 new InfoWindow(game).ShowDialog();
             }
         }
+
+        #region INotifyPropertyChanged Members
+
+        // INotifyPropertyChanged event for auto refreshing changes to UI
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        // Create the OnPropertyChanged method to raise the event
+        public void OnPropertyChanged(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
+        #endregion
     }
 }
