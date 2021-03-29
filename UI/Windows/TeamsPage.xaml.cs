@@ -25,6 +25,8 @@ namespace FLAGS_NBA.UI.Windows
     public partial class TeamsPage : UserControl, INotifyPropertyChanged
     {
         private ObservableCollection<Team> teams;
+        private List<Team> allTeams;
+
         public ObservableCollection<Team> Teams
         {
             get { return teams; }
@@ -35,15 +37,42 @@ namespace FLAGS_NBA.UI.Windows
             }
         }
 
+        public List<Team> AllTeams
+        {
+            get { return allTeams; }
+            set
+            {
+                allTeams = value;
+            }
+        }
+
         public TeamsPage()
+        {
+            PopulateTeams();
+
+            InitializeComponent();
+        }
+
+        private void btnItem_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            Team team = button.DataContext as Team;
+
+            if (team != null)
+            {
+                new InfoWindow(team).ShowDialog();
+            }
+        }
+
+        private void PopulateTeams()
         {
             if (Teams == null || Teams.Count == 0)
             {
-                /*Requests requests = new Requests();
-                List<Team> teamsList = requests.GetAllTeamsAsync().Result;
-                Teams = new ObservableCollection<Team>(teamsList);*/
+                Requests requests = new Requests();
+                AllTeams = requests.GetAllTeamsAsync().Result;
+                Teams = new ObservableCollection<Team>(AllTeams);
 
-                List<Team> teamList = new List<Team>();
+                /*List<Team> teamList = new List<Team>();
 
                 Team team1 = new Team();
                 team1.fullName = "Golden State Warriors";
@@ -65,20 +94,7 @@ namespace FLAGS_NBA.UI.Windows
 
                 teamList.Add(team1);
                 teamList.Add(team2);
-                Teams = new ObservableCollection<Team>(teamList);
-            }
-
-            InitializeComponent();
-        }
-
-        private void btnItem_Click(object sender, RoutedEventArgs e)
-        {
-            Button button = sender as Button;
-            Team team = button.DataContext as Team;
-
-            if (team != null)
-            {
-                new InfoWindow(team).ShowDialog();
+                Teams = new ObservableCollection<Team>(teamList);*/
             }
         }
 

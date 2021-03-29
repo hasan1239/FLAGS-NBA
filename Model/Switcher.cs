@@ -13,8 +13,11 @@ namespace FLAGS_NBA.Model
 
         public static void Navigate(UserControl newPage)
         {
-            pageSwitcher.Children.Clear();
-            pageSwitcher.Children.Add(newPage);
+            if (pageSwitcher != null)
+            {
+                pageSwitcher.Children.Clear();
+                pageSwitcher.Children.Add(newPage);
+            }
         }
     }
 }

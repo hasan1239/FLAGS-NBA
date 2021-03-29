@@ -37,6 +37,24 @@ namespace FLAGS_NBA.UI.Windows
 
         public GamesPage()
         {
+            PopulateGames();
+
+            InitializeComponent();
+        }
+
+        private void btnItem_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            Game game = button.DataContext as Game;
+
+            if (game != null)
+            {
+                new InfoWindow(game).ShowDialog();
+            }
+        }
+
+        private void PopulateGames()
+        {
             if (Games == null || Games.Count == 0)
             {
                 Requests requests = new Requests();
@@ -89,19 +107,6 @@ namespace FLAGS_NBA.UI.Windows
                 gamesList.Add(game1);
 
                 Games = new ObservableCollection<Game>(gamesList);*/
-            }
-
-            InitializeComponent();
-        }
-
-        private void btnItem_Click(object sender, RoutedEventArgs e)
-        {
-            Button button = sender as Button;
-            Game game = button.DataContext as Game;
-
-            if (game != null)
-            {
-                new InfoWindow(game).ShowDialog();
             }
         }
 

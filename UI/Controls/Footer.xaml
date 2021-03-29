@@ -4,9 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FLAGS_NBA.UI.Controls"
+             xmlns:resources="clr-namespace:FLAGS_NBA.UI.Resources"
              xmlns:properties="clr-namespace:FLAGS_NBA.Properties"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <resources:VisibilityConverter x:Key="VisibilityConverter" />
+        <resources:ReverseVisibilityConverter x:Key="ReverseVisibilityConverter" />
+    </UserControl.Resources>
     
     <Grid>
         <Grid.ColumnDefinitions>
@@ -15,13 +21,25 @@
         </Grid.ColumnDefinitions>
         
         <StackPanel Orientation="Horizontal">
-            <Button HorizontalAlignment="Right" Width="20" Margin="5" Background="Transparent" x:Name="btnSettings" Click="btnSettings_Click" BorderThickness="0">
-                <Button.Content>
-                    <Image Source="/Images/Icons/fav_icon.png" />
-                </Button.Content>
+            <Button HorizontalAlignment="Right" Cursor="Hand" ToolTip="Settings" Width="20" Margin="5" Background="Transparent" x:Name="btnSettings" Click="btnSettings_Click" BorderThickness="0">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
+                                        <Grid>
+                                            <Image Source="/Images/Icons/fav_icon.png" />
+                                        </Grid>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
             </Button>
 
-            <ToggleButton Margin="0,0,0,0" BorderThickness="0" Background="Transparent" ToolTip="Dark Mode" x:Name="tglBtnDarkMode" Checked="tglBtnDarkMode_Checked" Unchecked="tglBtnDarkMode_Unchecked">
+            <ToggleButton Cursor="Hand" BorderThickness="0" Background="Transparent" ToolTip="Dark Mode" x:Name="tglBtnDarkMode" Checked="tglBtnDarkMode_Checked" Unchecked="tglBtnDarkMode_Unchecked">
                 <ToggleButton.Style>
                     <Style TargetType="ToggleButton">
                         <Setter Property="Template">
@@ -56,7 +74,8 @@
 
         <Grid Grid.Column="1" HorizontalAlignment="Right">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,10,0">
-                <Image Source="/Images/Clock_96px.png" Height="15" Margin="0,0,5,0" />
+                <Image Source="/Images/Icons/clock_dark.png" Height="15" Visibility="{Binding Source={x:Static properties:Settings.Default}, Path=DarkTheme, Converter={StaticResource VisibilityConverter}}" Margin="0,0,5,0" />
+                <Image Source="/Images/Icons/clock_light.png" Height="15" Visibility="{Binding Source={x:Static properties:Settings.Default}, Path=DarkTheme, Converter={StaticResource ReverseVisibilityConverter}}" Margin="0,0,5,0"/>
                 <TextBlock x:Name="txtDateTime" />
             </StackPanel>
         </Grid>

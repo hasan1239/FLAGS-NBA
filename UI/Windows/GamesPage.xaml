@@ -14,33 +14,44 @@
 
         <TextBlock FontSize="25" Text="Games"/>
 
-        <ItemsControl Margin="-10,10,0,0" Grid.Row="1" ItemsSource="{Binding ElementName=gamesPage, Path=Games, Mode=OneWay}">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <UniformGrid Columns="10"/>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Margin="10,10,0,0">
-                        <Button BorderThickness="1" Background="Transparent" BorderBrush="{StaticResource GraniteGrey}" Click="btnItem_Click">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
+        <Border Style="{StaticResource Border_Standard}" Grid.Row="1" Margin="0,10,0,0">
+            <ScrollViewer>
+                <ItemsControl ItemsSource="{Binding ElementName=gamesPage, Path=Games, Mode=OneWay}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="2"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="10,10,10,0">
+                                <Button BorderThickness="0,0,0,1" Background="Transparent" BorderBrush="{StaticResource AshGrey}" Click="btnItem_Click">
+                                    <Grid Margin="10" HorizontalAlignment="Center">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
 
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Path=hTeam.shortName}" />
-                                    <TextBlock Text=" v " />
-                                    <TextBlock Text="{Binding Path=vTeam.shortName}" />
-                                </StackPanel>
-                            </Grid>
-                        </Button>
-                        <!--<TextBlock Margin="0,5,0,0" FontSize="12" HorizontalAlignment="Center" Text="{Binding Path=Name}" Style="{StaticResource TextBlock_StandardStyle}"/>-->
-                    </StackPanel>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Image Source="{Binding Path=hTeam.logo}" Height="60"/>
+                                        <TextBlock Grid.Row="1" Margin="0,10,0,0" Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Center" Text="{Binding Path=hTeam.score.points}" />
+
+                                        <TextBlock Grid.Column="1" Grid.RowSpan="2" Text="V" Style="{StaticResource TextBlockStyle}" VerticalAlignment="Center" Margin="20,0,20,0" />
+
+                                        <Image Grid.Column="2" Source="{Binding Path=vTeam.logo}" Height="60"/>
+                                        <TextBlock Grid.Row="1" Grid.Column="2" Margin="0,10,0,0" Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Center" Text="{Binding Path=vTeam.score.points}" />
+                                    </Grid>
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Border>
     </Grid>
 </UserControl>

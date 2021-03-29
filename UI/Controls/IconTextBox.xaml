@@ -14,7 +14,7 @@
 
         <TextBox VerticalAlignment="Center" x:Name="testTxt" Text="{Binding Path=Text, ElementName=parentControl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="Transparent" BorderThickness="0" />
 
-        <Button Grid.Column="1" Focusable="False" HorizontalAlignment="Right" Cursor="Hand">
+        <Button Grid.Column="1" Focusable="False" ToolTip="Search" HorizontalAlignment="Right" Cursor="Hand">
             <Button.Style>
                 <Style TargetType="Button">
                     <Setter Property="OverridesDefaultStyle" Value="True" />
@@ -22,7 +22,7 @@
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="Button">
-                                <Border Opacity="0.4" Background="Transparent">
+                                <Border Background="Transparent">
                                     <ContentPresenter Content="{TemplateBinding Property=Content}" />
                                 </Border>
                             </ControlTemplate>

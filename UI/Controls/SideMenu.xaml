@@ -7,27 +7,16 @@
              xmlns:properties="clr-namespace:FLAGS_NBA.Properties"
              mc:Ignorable="d" x:Name="parentControl"
              d:DesignHeight="450" d:DesignWidth="800">
-    
+
     <UserControl.Resources>
-        <Style x:Key="SideMenu_BorderStyle" TargetType="Border">
-            <Setter Property="BorderBrush" Value="WhiteSmoke" />
-            <Setter Property="BorderThickness" Value="0,0,0,1"/>
-        </Style>
-
-        <Style x:Key="SideMenu_ButtonStyle" TargetType="Button">
-            <Setter Property="Background" Value="{StaticResource GraniteGrey}"/>
-            <Setter Property="BorderThickness" Value="0,0,0,1"/>
-            <Setter Property="Foreground" Value="{StaticResource WhiteSmoke}" />
-        </Style>
-
-        <Style x:Key="font_style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyle}">
+        <Style x:Key="SideMenu_TextBlockStyle" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyle}">
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="FontSize" Value="20"/>
         </Style>
 
-        <Style TargetType="ToolTip" x:Key="tt_style">
+        <!--<Style x:Key="SideMenu_ToolTipStyle" TargetType="ToolTip">
             <Setter Property="Placement" Value="Right"/>
             <Setter Property="Height" Value="40"/>
             <Setter Property="Width" Value="75"/>
@@ -42,28 +31,17 @@
             <Setter Property="HasDropShadow" Value="True"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
         </Style>
-
-        <Style x:Key="tb_style" TargetType="{x:Type ToggleButton}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type ToggleButton}">
-                        <Border x:Name="border" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" />
-
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource tb_mouse_over}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource tb_mouse_over}"/>
-                            </Trigger>
-
-                            <Trigger Property="IsChecked" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource tb_mouse_over}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource tb_mouse_over}"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
+        
+        <Style x:Key="SideMenu_BorderStyle" TargetType="Border">
+            <Setter Property="BorderBrush" Value="WhiteSmoke" />
+            <Setter Property="BorderThickness" Value="0,0,0,1"/>
         </Style>
+
+        <Style x:Key="SideMenu_ButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource GraniteGrey}"/>
+            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+            <Setter Property="Foreground" Value="{StaticResource WhiteSmoke}" />
+        </Style>-->
     </UserControl.Resources>
     
     <Grid>
@@ -92,7 +70,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Grid Margin="10,0,10,0">
+            <Grid Margin="10,5,10,0">
                 <controls:IconTextBox x:Name="searchTextBox" Style="{StaticResource IconTextBox_Style}" ButtonBase.Click="IconTextBox_Click" ImageURL="../../Images/Icons/search_Icon.png" />
             </Grid>
 
@@ -110,6 +88,22 @@
 
             <Grid Grid.Row="1">
                 <ListView x:Name="LV" Background="Transparent" Margin="-2,0,0,0" Width="170" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,0" Selected="ListViewItem_Selected" Tag="Home" IsSelected="True">
+                        <Grid Width="230" Margin="5,0,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="/Images/Icons/basketball_UI.png" />
+                            <TextBlock Grid.Column="1" Text="Home" Margin="10,0,0,0" Style="{StaticResource SideMenu_TextBlockStyle}"/>
+                        </Grid>
+
+                        <!--<ListViewItem.ToolTip>
+                            <ToolTip x:Name="tt_welcome" Content="Welcome" Style="{StaticResource SideMenu_ToolTipStyle}"/>
+                        </ListViewItem.ToolTip>-->
+                    </ListViewItem>
+
                     <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,0" Selected="ListViewItem_Selected" Tag="Games">
                         <Grid Width="230" Margin="5,0,0,0">
                             <Grid.ColumnDefinitions>
@@ -118,12 +112,12 @@
                             </Grid.ColumnDefinitions>
 
                             <Image Source="/Images/Icons/basketball_strategy.png" />
-                            <TextBlock Grid.Column="1" Text="Games" Margin="10,0,0,0" Style="{StaticResource font_style}"/>
+                            <TextBlock Grid.Column="1" Text="Games" Margin="10,0,0,0" Style="{StaticResource SideMenu_TextBlockStyle}"/>
                         </Grid>
 
-                        <ListViewItem.ToolTip>
-                            <ToolTip x:Name="tt_games" Content="Games" Style="{StaticResource tt_style}"/>
-                        </ListViewItem.ToolTip>
+                        <!--<ListViewItem.ToolTip>
+                            <ToolTip x:Name="tt_games" Content="Games" Style="{StaticResource SideMenu_ToolTipStyle}"/>
+                        </ListViewItem.ToolTip>-->
                     </ListViewItem>
 
                     <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,0" Selected="ListViewItem_Selected" Tag="Players">
@@ -134,12 +128,12 @@
                             </Grid.ColumnDefinitions>
 
                             <Image Source="/Images/Icons/basketball_player.png" />
-                            <TextBlock Grid.Column="1" Text="Players" Margin="10,0,0,0" Style="{StaticResource font_style}"/>
+                            <TextBlock Grid.Column="1" Text="Players" Margin="10,0,0,0" Style="{StaticResource SideMenu_TextBlockStyle}"/>
                         </Grid>
 
-                        <ListViewItem.ToolTip>
-                            <ToolTip x:Name="tt_players" Content="Players" Style="{StaticResource tt_style}"/>
-                        </ListViewItem.ToolTip>
+                        <!--<ListViewItem.ToolTip>
+                            <ToolTip x:Name="tt_players" Content="Players" Style="{StaticResource SideMenu_ToolTipStyle}"/>
+                        </ListViewItem.ToolTip>-->
                     </ListViewItem>
 
                     <ListViewItem HorizontalAlignment="Left" Margin="0,0,0,0" Selected="ListViewItem_Selected" Tag="Teams">
@@ -150,12 +144,12 @@
                             </Grid.ColumnDefinitions>
                             
                             <Image Source="/Images/Icons/basketball_players.png" />
-                            <TextBlock Grid.Column="1" Text="Teams" Margin="10,0,0,0" Style="{StaticResource font_style}"/>
+                            <TextBlock Grid.Column="1" Text="Teams" Margin="10,0,0,0" Style="{StaticResource SideMenu_TextBlockStyle}"/>
                         </Grid>
 
-                        <ListViewItem.ToolTip>
-                            <ToolTip x:Name="tt_teams" Content="Teams" Style="{StaticResource tt_style}"/>
-                        </ListViewItem.ToolTip>
+                        <!--<ListViewItem.ToolTip>
+                            <ToolTip x:Name="tt_teams" Content="Teams" Style="{StaticResource SideMenu_ToolTipStyle}"/>
+                        </ListViewItem.ToolTip>-->
                     </ListViewItem>
 
                     <ListView.ItemContainerStyle>
@@ -212,6 +206,11 @@
                         </Style>
                     </ListView.ItemContainerStyle>
                 </ListView>
+
+                <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                    <TextBlock Text="Hasan Tariq" HorizontalAlignment="Center" VerticalAlignment="Bottom" Style="{StaticResource TextBlockStyle}"/>
+                    <TextBlock Text="Developer at Flags" Margin="0,0,0,5"/>
+                </StackPanel>
             </Grid>
         </Grid>
     </Grid>

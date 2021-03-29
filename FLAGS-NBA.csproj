@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>app_icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -71,6 +74,7 @@
     <Compile Include="API\Objects\Player.cs" />
     <Compile Include="API\Objects\Team.cs" />
     <Compile Include="Model\RequestHelper.cs" />
+    <Compile Include="Model\SearchHelper.cs" />
     <Compile Include="Model\Switcher.cs" />
     <Compile Include="UI\Controls\Footer.xaml.cs">
       <DependentUpon>Footer.xaml</DependentUpon>
@@ -235,6 +239,33 @@
     <Resource Include="Images\Icons\light_bulb.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="Images\FLAGS_logo_splash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\clock_dark.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icons\clock_light.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\nba_icon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="nba_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\app_icon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="app_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

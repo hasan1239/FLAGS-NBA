@@ -37,13 +37,31 @@ namespace FLAGS_NBA.UI.Windows
 
         public PlayersPage()
         {
+            PopulatePlayers();
+
+            InitializeComponent();
+        }
+
+        private void btnItem_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            Player player = button.DataContext as Player;
+
+            if (player != null)
+            {
+                new InfoWindow(player).ShowDialog();
+            }
+        }
+
+        private void PopulatePlayers()
+        {
             if (Players == null || Players.Count == 0)
             {
-                /*Requests requests = new Requests();
+                Requests requests = new Requests();
                 List<Player> playersList = requests.GetPlayersAsync("curry").Result;
-                Players = new ObservableCollection<Player>(playersList);*/
+                Players = new ObservableCollection<Player>(playersList);
 
-                List<Player> playerList = new List<Player>();
+                /*List<Player> playerList = new List<Player>();
 
                 Player stephen = new Player();
                 stephen.affiliation = "Davidson/USA";
@@ -76,20 +94,7 @@ namespace FLAGS_NBA.UI.Windows
                 playerList.Add(stephen);
                 playerList.Add(seth);
 
-                Players = new ObservableCollection<Player>(playerList);
-            }
-
-            InitializeComponent();
-        }
-
-        private void btnItem_Click(object sender, RoutedEventArgs e)
-        {
-            Button button = sender as Button;
-            Player player = button.DataContext as Player;
-
-            if (player != null)
-            {
-                new InfoWindow(player).ShowDialog();
+                Players = new ObservableCollection<Player>(playerList);*/
             }
         }
 

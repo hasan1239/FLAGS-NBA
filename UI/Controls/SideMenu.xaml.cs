@@ -22,9 +22,17 @@ namespace FLAGS_NBA.UI.Controls
     /// </summary>
     public partial class SideMenu : UserControl
     {
+        private WelcomePage welcomePage;
         private GamesPage gamesPage;
         private TeamsPage teamsPage;
         private PlayersPage playersPage;
+        private object currentPage;
+
+        public WelcomePage WelcomePage
+        {
+            get { return welcomePage; }
+            set { welcomePage = value; }
+        }
 
         public GamesPage GamesPage
         {
@@ -44,6 +52,15 @@ namespace FLAGS_NBA.UI.Controls
             set { playersPage = value; }
         }
 
+        public object CurrentPage
+        {
+            get { return currentPage; }
+            set
+            {
+                currentPage = value;
+            }
+        }
+
         public SideMenu()
         {
             InitializeComponent();
@@ -53,7 +70,17 @@ namespace FLAGS_NBA.UI.Controls
         {
             ListViewItem item = sender as ListViewItem;
 
-            if (item.Tag.ToString() == "Games")
+            if (item.Tag.ToString() == "Home")
+            {
+                if (WelcomePage == null)
+                {
+                    WelcomePage = new WelcomePage();
+                }
+
+                Switcher.Navigate(WelcomePage);
+                CurrentPage = WelcomePage;
+            }
+            else if (item.Tag.ToString() == "Games")
             {
                 if (GamesPage == null)
                 {
@@ -61,6 +88,7 @@ namespace FLAGS_NBA.UI.Controls
                 }
 
                 Switcher.Navigate(GamesPage);
+                CurrentPage = GamesPage;
             }
             else if (item.Tag.ToString() == "Teams")
             {
@@ -70,6 +98,7 @@ namespace FLAGS_NBA.UI.Controls
                 }
 
                 Switcher.Navigate(TeamsPage);
+                CurrentPage = TeamsPage;
             }
             else
             {
@@ -79,6 +108,7 @@ namespace FLAGS_NBA.UI.Controls
                 }
 
                 Switcher.Navigate(PlayersPage);
+                CurrentPage = PlayersPage;
             }
         }
 
@@ -86,15 +116,18 @@ namespace FLAGS_NBA.UI.Controls
         {
             string searchText = searchTextBox.Text;
 
-            if (GamesPage != null)
+            if (GamesPage != null && CurrentPage is GamesPage)
             {
                 GamesPage.Games = RequestHelper.GetGames(searchText);
             }
-            else if (TeamsPage != null)
+            else if (TeamsPage != null && CurrentPage is TeamsPage)
             {
-                TeamsPage.Teams = RequestHelper.GetTeams(searchText);
+                //Used this approach to make it more efficient and minimise sending requests to API
+                teamsPage.Teams = SearchHelper.SearchTeams(searchText, teamsPage.AllTeams);
+
+                //TeamsPage.Teams = RequestHelper.GetTeams(searchText);
             }
-            else if (PlayersPage != null)
+            else if (PlayersPage != null && CurrentPage is PlayersPage)
             {
                 PlayersPage.Players = RequestHelper.GetPlayers(searchText);
             }
