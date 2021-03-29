@@ -15,7 +15,7 @@
             </Grid.ColumnDefinitions>
 
             <Border Style="{StaticResource Border_Standard}">
-                <Image x:Name="teamImg" Source="{Binding ElementName=infoWindow, Path=Team.logo}" Margin="10" Height="250"/>
+                <Image x:Name="teamImg" Source="{Binding ElementName=infoWindow, Path=Team.logo}" Margin="10" MinWidth="250" Height="250"/>
             </Border>
 
             <Border Grid.Column="1" Margin="10,0,0,0" Style="{StaticResource Border_Standard}">
