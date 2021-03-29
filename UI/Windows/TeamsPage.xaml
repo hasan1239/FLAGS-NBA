@@ -24,24 +24,44 @@
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Margin="10,10,0,0">
-                                <Button BorderThickness="0" Width="200" Background="Transparent" BorderBrush="{StaticResource GraniteGrey}" Click="btnItem_Click">
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                        </Grid.RowDefinitions>
+                            <StackPanel Margin="10,10,10,0">
+                                <Button BorderThickness="0" BorderBrush="{StaticResource AshGrey}" Click="btnItem_Click">
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Background" Value="Transparent"/>
 
-                                        <Grid Margin="2">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="Auto"/>
-                                            </Grid.ColumnDefinitions>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="{x:Type Button}">
+                                                        <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
+                                                            <Grid>
+                                                                <Grid.RowDefinitions>
+                                                                    <RowDefinition Height="Auto"/>
+                                                                    <RowDefinition Height="Auto"/>
+                                                                </Grid.RowDefinitions>
 
-                                            <Image Source="{Binding logo}" HorizontalAlignment="Left" Height="50"/>
-                                            <TextBlock Text="{Binding fullName}" Style="{StaticResource TextBlockStyle}" Margin="10,15,0,0" Grid.Column="1"/>
-                                        </Grid>
-                                    </Grid>
+                                                                <Grid Margin="2">
+                                                                    <Grid.ColumnDefinitions>
+                                                                        <ColumnDefinition Width="Auto"/>
+                                                                        <ColumnDefinition Width="Auto"/>
+                                                                    </Grid.ColumnDefinitions>
+
+                                                                    <Image Source="{Binding logo, Converter={StaticResource MissingImageConverter}}" HorizontalAlignment="Left" Height="50"/>
+                                                                    <TextBlock Text="{Binding fullName}" Style="{StaticResource TextBlockStyle}" Margin="10,15,0,0" Grid.Column="1"/>
+                                                                </Grid>
+                                                            </Grid>
+                                                        </Border>
+
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter Property="Background" Value="{StaticResource LightSeaGreen}"/>
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </Button.Style>
                                 </Button>
                             </StackPanel>
                         </DataTemplate>

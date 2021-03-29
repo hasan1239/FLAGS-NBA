@@ -5,5 +5,15 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Themes.xaml"/>
         <ResourceDictionary Source="Styles.xaml"/>
+        <ResourceDictionary>
+            <local:MissingImageConverter x:Key="MissingImageConverter"/>
+            <local:IntToStringConverter x:Key="IntToStringConverter" />
+            <local:VisibilityConverter x:Key="VisibilityConverter" />
+            <local:ReverseVisibilityConverter x:Key="ReverseVisibilityConverter" />
+            <local:PlayerFullNameConverter x:Key="PlayerFullNameConverter"/>
+            <local:DOBToAgeConverter x:Key="DOBToAgeConverter"/>
+            <local:FormatDateTimeConverter x:Key="FormatDateTimeConverter"/>
+            <local:FormatMinutesConverter x:Key="FormatMinutesConverter"/>
+        </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

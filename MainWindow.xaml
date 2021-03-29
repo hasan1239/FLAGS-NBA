@@ -7,7 +7,7 @@
         xmlns:Controls="clr-namespace:FLAGS_NBA.UI.Controls"
         xmlns:properties="clr-namespace:FLAGS_NBA.Properties"
         mc:Ignorable="d"
-        Title="FLAGS NBA" MinHeight="500" Height="600" MinWidth="850" Width="1080" Style="{StaticResource MainWindowStyle}"
+        Title="FLAGS NBA" MinHeight="500" Height="625" MinWidth="850" Width="1080" Style="{StaticResource MainWindowStyle}"
         WindowStyle="SingleBorderWindow" ResizeMode="CanResize" x:Name="parentWindow">
 
     <Grid>

@@ -84,6 +84,11 @@ namespace FLAGS_NBA.UI.Windows
         {
             this.team = team;
             InitializeComponent();
+
+            if (string.IsNullOrEmpty(team.logo))
+            {
+                teamImg.Source = new BitmapImage(new Uri(@"..\..\Images\Icons\basketball_players.png", UriKind.Relative));
+            }
         }
 
         public InfoWindow(Player player)
@@ -96,6 +101,16 @@ namespace FLAGS_NBA.UI.Windows
         {
             this.game = game;
             InitializeComponent();
+
+            if (string.IsNullOrEmpty(game.hTeam.logo))
+            {
+                hTeamImg.Source = new BitmapImage(new Uri(@"..\..\Images\Icons\basketball_players.png", UriKind.Relative));
+            }
+
+            if (string.IsNullOrEmpty(game.vTeam.logo))
+            {
+                vTeamImg.Source = new BitmapImage(new Uri(@"..\..\Images\Icons\basketball_players.png", UriKind.Relative));
+            }
         }
     }
 }

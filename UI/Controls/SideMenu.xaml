@@ -66,11 +66,11 @@
 
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="35"/>
+                <RowDefinition Height="45"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Grid Margin="10,5,10,0">
+            <Grid Margin="10,0,10,0">
                 <controls:IconTextBox x:Name="searchTextBox" Style="{StaticResource IconTextBox_Style}" ButtonBase.Click="IconTextBox_Click" ImageURL="../../Images/Icons/search_Icon.png" />
             </Grid>
 
@@ -166,8 +166,8 @@
 
                                         <ControlTemplate.Triggers>
                                             <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Background" Value="{StaticResource DaveysGrey}"/>
-                                                <Setter Property="BorderBrush" Value="{StaticResource DaveysGrey}"/>
+                                                <Setter Property="Background" Value="{StaticResource LightSeaGreen}"/>
+                                                <Setter Property="BorderBrush" Value="{StaticResource LightSeaGreen}"/>
                                             </Trigger>
 
                                             <Trigger Property="IsSelected" Value="true">

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace FLAGS_NBA.API.Helper
 {
@@ -98,13 +99,15 @@ namespace FLAGS_NBA.API.Helper
 
         public static HttpRequestMessage CreateRequest(string endpoint)
         {
+            string apiKey = ConfigurationManager.AppSettings["API_Key"];
+
             HttpRequestMessage request = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
                 RequestUri = new Uri(endpoint),
                 Headers =
                     {
-                        { "x-rapidapi-key", "8c347f02dfmsh7b9bc43d239fb3cp17e860jsna630297c5efe" },
+                        { "x-rapidapi-key", apiKey },
                         { "x-rapidapi-host", "api-nba-v1.p.rapidapi.com" },
                         { "Accept", "application/json" }
                     },

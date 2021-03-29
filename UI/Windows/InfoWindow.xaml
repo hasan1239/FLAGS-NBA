@@ -4,20 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FLAGS_NBA.UI.Windows"
-        xmlns:resources="clr-namespace:FLAGS_NBA.UI.Resources"
         mc:Ignorable="d" x:Name="infoWindow" Style="{StaticResource WindowStyle}" WindowStartupLocation="CenterOwner"
         Title="{Binding ElementName=infoWindow, Path=TitleText}" MinHeight="450" Height="450" MinWidth="800" Width="800">
 
-    <Window.Resources>
-        <resources:IntToStringConverter x:Key="IntToStringConverter" />
-        <resources:VisibilityConverter x:Key="VisibilityConverter" />
-        <resources:ReverseVisibilityConverter x:Key="ReverseVisibilityConverter" />
-        <resources:PlayerFullNameConverter x:Key="PlayerFullNameConverter"/>
-        <resources:DOBToAgeConverter x:Key="DOBToAgeConverter"/>
-        <resources:FormatDateTimeConverter x:Key="FormatDateTimeConverter"/>
-        <resources:FormatMinutesConverter x:Key="FormatMinutesConverter"/>
-    </Window.Resources>
-    
     <Grid Margin="10">
         <Grid Visibility="{Binding ElementName=infoWindow, Path=IsTeam, Converter={StaticResource VisibilityConverter}}">
             <Grid.ColumnDefinitions>
@@ -26,7 +15,7 @@
             </Grid.ColumnDefinitions>
 
             <Border Style="{StaticResource Border_Standard}">
-                <Image Source="{Binding ElementName=infoWindow, Path=Team.logo}" Margin="10" Height="250"/>
+                <Image x:Name="teamImg" Source="{Binding ElementName=infoWindow, Path=Team.logo}" Margin="10" Height="250"/>
             </Border>
 
             <Border Grid.Column="1" Margin="10,0,0,0" Style="{StaticResource Border_Standard}">
@@ -84,14 +73,22 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    
-                    <Image Source="{Binding ElementName=infoWindow, Path=Game.hTeam.logo}"/>
-                    <TextBlock Grid.Row="1" Margin="0,10,0,0" HorizontalAlignment="Center" Text="{Binding ElementName=infoWindow, Path=Game.hTeam.score.points}" />
+
+                    <Image x:Name="hTeamImg" Source="{Binding ElementName=infoWindow, Path=Game.hTeam.logo}"/>
+                    <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" Margin="0,10,0,0">
+                        <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding ElementName=infoWindow, Path=Game.hTeam.shortName}" />
+                        <TextBlock Style="{StaticResource TextBlockStyle}" Text=" - "/>
+                        <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding ElementName=infoWindow, Path=Game.hTeam.score.points}" />
+                    </StackPanel>
 
                     <TextBlock Grid.Column="1" Grid.RowSpan="2" Text="V" VerticalAlignment="Center" Margin="20,0,20,0" />
-                    
-                    <Image Grid.Column="2" Source="{Binding ElementName=infoWindow, Path=Game.vTeam.logo}"/>
-                    <TextBlock Grid.Row="1" Grid.Column="2" Margin="0,10,0,0" HorizontalAlignment="Center" Text="{Binding ElementName=infoWindow, Path=Game.vTeam.score.points}" />
+
+                    <Image x:Name="vTeamImg" Grid.Column="2" Source="{Binding ElementName=infoWindow, Path=Game.vTeam.logo}"/>
+                    <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" Margin="0,10,0,0">
+                        <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding ElementName=infoWindow, Path=Game.vTeam.shortName}" />
+                        <TextBlock Style="{StaticResource TextBlockStyle}" Text=" - "/>
+                        <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding ElementName=infoWindow, Path=Game.vTeam.score.points}" />
+                    </StackPanel>
                 </Grid>
             </Border>
             

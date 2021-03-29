@@ -9,11 +9,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <UserControl.Resources>
-        <resources:VisibilityConverter x:Key="VisibilityConverter" />
-        <resources:ReverseVisibilityConverter x:Key="ReverseVisibilityConverter" />
-    </UserControl.Resources>
-    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
