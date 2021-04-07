@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30711.63
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLAGS-NBA", "FLAGS-NBA.csproj", "{13728292-96BE-4224-B55F-F4C91BA4E782}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLAGS-NBA", "FLAGS-NBA\FLAGS-NBA.csproj", "{13728292-96BE-4224-B55F-F4C91BA4E782}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLAGS-NBAUnitTests", "FLAGS-NBAUnitTests\FLAGS-NBAUnitTests.csproj", "{3FFB8EAA-83CD-4640-8340-855BAB980954}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{13728292-96BE-4224-B55F-F4C91BA4E782}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13728292-96BE-4224-B55F-F4C91BA4E782}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13728292-96BE-4224-B55F-F4C91BA4E782}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FFB8EAA-83CD-4640-8340-855BAB980954}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FFB8EAA-83CD-4640-8340-855BAB980954}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FFB8EAA-83CD-4640-8340-855BAB980954}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FFB8EAA-83CD-4640-8340-855BAB980954}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
