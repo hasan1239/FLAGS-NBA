@@ -9,18 +9,16 @@ namespace FLAGS_NBA.Model
 {
     public class SearchHelper
     {
-        public static ObservableCollection<Team> SearchTeams(string searchText, List<Team> allTeams)
+        public static List<Team> SearchTeams(string searchText, List<Team> allTeams)
         {
             if (allTeams != null && allTeams.Count > 0)
             {
                 string sPattern = searchText;
 
-                List<Team> results = allTeams.FindAll(t => System.Text.RegularExpressions.Regex.IsMatch(t.FullName, sPattern, System.Text.RegularExpressions.RegexOptions.IgnoreCase));
-
-                return new ObservableCollection<Team>(results);
+                return allTeams.FindAll(t => System.Text.RegularExpressions.Regex.IsMatch(t.FullName, sPattern, System.Text.RegularExpressions.RegexOptions.IgnoreCase));
             }
 
-            return new ObservableCollection<Team>();
+            return new List<Team>();
         }
     }
 }

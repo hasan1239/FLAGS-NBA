@@ -37,6 +37,12 @@ namespace FLAGS_NBA.Model
             return new List<Team>();
         }
 
+        public static IList<Team> GetAllTeams()
+        {
+            Requests requests = new Requests();
+            return requests.GetAllTeamsAsync().Result;
+        }
+
         public static IList<Game> GetGames(string date)
         {
             if (!string.IsNullOrEmpty(date))

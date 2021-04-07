@@ -35,8 +35,7 @@ namespace FLAGS_NBA.ViewModel
 
         public GameViewModel()
         {
-            Requests requests = new Requests();
-            Games = requests.GetGamesAsync("2020-01-14").Result;
+            Games = RequestHelper.GetGames("2020-01-14");
             SearchDate = "2020-01-14";
         }
     }

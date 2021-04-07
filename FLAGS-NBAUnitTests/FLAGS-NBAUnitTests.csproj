@@ -65,6 +65,12 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FLAGS-NBA\FLAGS-NBA.csproj">
+      <Project>{13728292-96be-4224-b55f-f4c91ba4e782}</Project>
+      <Name>FLAGS-NBA</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

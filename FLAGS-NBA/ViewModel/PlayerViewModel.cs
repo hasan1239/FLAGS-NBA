@@ -25,8 +25,7 @@ namespace FLAGS_NBA.ViewModel
 
         public PlayerViewModel()
         {
-            Requests requests = new Requests();
-            Players = requests.GetPlayersAsync("curry").Result;
+            Players = RequestHelper.GetPlayers("curry");
         }
     }
 }

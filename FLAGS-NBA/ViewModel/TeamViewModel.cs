@@ -35,8 +35,7 @@ namespace FLAGS_NBA.ViewModel
 
         public TeamViewModel()
         {
-            Requests requests = new Requests();
-            AllTeams = requests.GetAllTeamsAsync().Result;
+            AllTeams = RequestHelper.GetAllTeams().ToList();
             Teams = AllTeams;
         }
     }
