@@ -1,5 +1,4 @@
-﻿using FLAGS_NBA.API.Objects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -16,7 +15,7 @@ namespace FLAGS_NBA.Model
             {
                 string sPattern = searchText;
 
-                List<Team> results = allTeams.FindAll(t => System.Text.RegularExpressions.Regex.IsMatch(t.fullName, sPattern, System.Text.RegularExpressions.RegexOptions.IgnoreCase));
+                List<Team> results = allTeams.FindAll(t => System.Text.RegularExpressions.Regex.IsMatch(t.FullName, sPattern, System.Text.RegularExpressions.RegexOptions.IgnoreCase));
 
                 return new ObservableCollection<Team>(results);
             }

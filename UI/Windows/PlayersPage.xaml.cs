@@ -1,5 +1,6 @@
 ﻿using FLAGS_NBA.API.Helper;
-using FLAGS_NBA.API.Objects;
+using FLAGS_NBA.Model;
+using FLAGS_NBA.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,23 +23,11 @@ namespace FLAGS_NBA.UI.Windows
     /// <summary>
     /// Interaction logic for Players.xaml
     /// </summary>
-    public partial class PlayersPage : UserControl, INotifyPropertyChanged
+    public partial class PlayersPage : UserControl
     {
-        private ObservableCollection<Player> players;
-        public ObservableCollection<Player> Players
-        {
-            get { return players; }
-            set 
-            { 
-                players = value;
-                OnPropertyChanged("Players");
-            }
-        }
-
         public PlayersPage()
         {
-            PopulatePlayers();
-
+            this.DataContext = new PlayerViewModel();
             InitializeComponent();
         }
 
@@ -52,63 +41,5 @@ namespace FLAGS_NBA.UI.Windows
                 new InfoWindow(player).ShowDialog();
             }
         }
-
-        private void PopulatePlayers()
-        {
-            if (Players == null || Players.Count == 0)
-            {
-                Requests requests = new Requests();
-                List<Player> playersList = requests.GetPlayersAsync("curry").Result;
-                Players = new ObservableCollection<Player>(playersList);
-
-                /*List<Player> playerList = new List<Player>();
-
-                Player stephen = new Player();
-                stephen.affiliation = "Davidson/USA";
-                stephen.collegeName = "Davidson";
-                stephen.country = "USA";
-                stephen.dateofBirth = "1988-03-14";
-                stephen.firstName = "Stephen";
-                stephen.heightInMeters = "1.9";
-                stephen.lastName = "Curry";
-                stephen.playerId = "124";
-                stephen.startNba = "2009";
-                stephen.teamId = "11";
-                stephen.weightinKilograms = "83.9";
-                stephen.yearsPro = "11";
-
-                Player seth = new Player();
-                seth.affiliation = "Duke/USA";
-                seth.collegeName = "Duke";
-                seth.country = "USA";
-                seth.dateofBirth = "1990-08-23";
-                seth.firstName = "Seth";
-                seth.heightInMeters = "1.88";
-                seth.lastName = "Curry";
-                seth.playerId = "123";
-                seth.startNba = "2013";
-                seth.teamId = "27";
-                seth.weightinKilograms = "83.9";
-                seth.yearsPro = "6";
-
-                playerList.Add(stephen);
-                playerList.Add(seth);
-
-                Players = new ObservableCollection<Player>(playerList);*/
-            }
-        }
-
-        #region INotifyPropertyChanged Members
-
-        // INotifyPropertyChanged event for auto refreshing changes to UI
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        // Create the OnPropertyChanged method to raise the event
-        public void OnPropertyChanged(string name)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
-
-        #endregion
     }
 }

@@ -14,11 +14,14 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock FontSize="25" Text="Games"/>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock FontSize="25" Text="Games - "/>
+            <TextBlock FontSize="25" Text="{Binding SearchDate}"/>
+        </StackPanel>
 
         <Border Style="{StaticResource Border_Standard}" Grid.Row="1" Margin="0,10,0,0">
             <ScrollViewer>
-                <ItemsControl ItemsSource="{Binding ElementName=gamesPage, Path=Games, Mode=OneWay}">
+                <ItemsControl ItemsSource="{Binding Games}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <UniformGrid Columns="3"/>
@@ -48,21 +51,21 @@
                                                                     <RowDefinition Height="Auto"/>
                                                                 </Grid.RowDefinitions>
 
-                                                                <Image Source="{Binding Path=hTeam.logo, Converter={StaticResource MissingImageConverter}}" Height="60"/>
+                                                                <Image Source="{Binding Path=HTeam.Logo, Converter={StaticResource MissingImageConverter}}" Height="60"/>
                                                                 <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" Margin="0,10,0,0">
-                                                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Path=hTeam.shortName}" />
+                                                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Path=HTeam.ShortName}" />
                                                                     <TextBlock Style="{StaticResource TextBlockStyle}" Text=" - "/>
-                                                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Path=hTeam.score.points}" />
+                                                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Path=HTeam.Score.Points}" />
                                                                 </StackPanel>
 
                                                                 <TextBlock Grid.Column="1" Grid.RowSpan="2" Text="V" Style="{StaticResource TextBlockStyle}" VerticalAlignment="Center" Margin="20,0,20,0" />
 
-                                                                <Image Grid.Column="2" Source="{Binding Path=vTeam.logo, Converter={StaticResource MissingImageConverter}}" Height="60"/>
+                                                                <Image Grid.Column="2" Source="{Binding Path=VTeam.Logo, Converter={StaticResource MissingImageConverter}}" Height="60"/>
                                                                 
                                                                 <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" Margin="0,10,0,0">
-                                                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Path=vTeam.shortName}" />
+                                                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Path=VTeam.ShortName}" />
                                                                     <TextBlock Style="{StaticResource TextBlockStyle}" Text=" - "/>
-                                                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Path=vTeam.score.points}" />
+                                                                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Path=VTeam.Score.Points}" />
                                                                 </StackPanel>
                                                             </Grid>
                                                         </Border>

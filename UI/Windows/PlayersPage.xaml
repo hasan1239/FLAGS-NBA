@@ -16,7 +16,7 @@
 
         <Border Style="{StaticResource Border_Standard}" Grid.Row="1" Margin="0,10,0,0">
             <ScrollViewer>
-                <ItemsControl ItemsSource="{Binding ElementName=playersPage, Path=Players, Mode=OneWay}">
+                <ItemsControl ItemsSource="{Binding Players}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <UniformGrid Columns="5"/>
@@ -44,15 +44,15 @@
 
                                                                 <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0">
                                                                     <StackPanel Orientation="Horizontal">
-                                                                        <TextBlock Text="{Binding firstName}" Style="{StaticResource TextBlockStyle}"/>
-                                                                        <TextBlock Text="{Binding lastName}" Style="{StaticResource TextBlockStyle}" Margin="5,0,0,0" />
+                                                                        <TextBlock Text="{Binding FirstName}" Style="{StaticResource TextBlockStyle}"/>
+                                                                        <TextBlock Text="{Binding LastName}" Style="{StaticResource TextBlockStyle}" Margin="5,0,0,0" />
                                                                     </StackPanel>
                                                                     <StackPanel Orientation="Horizontal">
-                                                                        <TextBlock Text="{Binding heightInMeters}" Style="{StaticResource TextBlockStyle}"/>
+                                                                        <TextBlock Text="{Binding HeightInMeters}" Style="{StaticResource TextBlockStyle}"/>
                                                                         <TextBlock Text="m" Margin="2,0,0,0" Style="{StaticResource TextBlockStyle}"/>
                                                                     </StackPanel>
                                                                     <StackPanel Orientation="Horizontal">
-                                                                        <TextBlock Text="{Binding weightinKilograms}" Style="{StaticResource TextBlockStyle}" />
+                                                                        <TextBlock Text="{Binding WeightInKilograms}" Style="{StaticResource TextBlockStyle}" />
                                                                         <TextBlock Text="kg" Margin="2,0,0,0" Style="{StaticResource TextBlockStyle}"/>
                                                                     </StackPanel>
                                                                 </StackPanel>

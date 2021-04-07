@@ -1,4 +1,4 @@
-﻿using FLAGS_NBA.API.Objects;
+﻿using FLAGS_NBA.Model;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -85,7 +85,7 @@ namespace FLAGS_NBA.UI.Resources
 
                 if (player != null)
                 {
-                    return player.firstName + " " + player.lastName;
+                    return player.FirstName + " " + player.LastName;
                 }
             }
 
@@ -104,13 +104,13 @@ namespace FLAGS_NBA.UI.Resources
         {
             if (value != null && !string.IsNullOrEmpty(value.ToString()))
             {
-                int age = 0;
+                int age;
                 DateTime dateOfBirth = DateTime.Parse(value.ToString());
 
                 age = DateTime.Now.Year - dateOfBirth.Year;
                 if (DateTime.Now.DayOfYear < dateOfBirth.DayOfYear)
                 {
-                    age = age - 1;
+                    age -= 1;
                 }
 
                 return age;

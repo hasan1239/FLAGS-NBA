@@ -15,7 +15,7 @@
             </Grid.ColumnDefinitions>
 
             <Border Style="{StaticResource Border_Standard}">
-                <Image x:Name="teamImg" Source="{Binding ElementName=infoWindow, Path=Team.logo}" Margin="10" MinWidth="250" Height="250"/>
+                <Image x:Name="teamImg" Source="{Binding ElementName=infoWindow, Path=Team.Logo}" Margin="10" MinWidth="250" Height="250"/>
             </Border>
 
             <Border Grid.Column="1" Margin="10,0,0,0" Style="{StaticResource Border_Standard}">
@@ -35,22 +35,22 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBlock Text="Full Name:" />
-                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Team.fullName}" Grid.Column="1"/>
+                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Team.FullName}" Grid.Column="1"/>
 
                     <TextBlock Text="Nickname:" Grid.Row="1"/>
-                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Team.nickname}" Grid.Column="1" Grid.Row="1"/>
+                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Team.Nickname}" Grid.Column="1" Grid.Row="1"/>
 
                     <TextBlock Text="Initials:" Grid.Row="2"/>
-                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Team.shortName}" Grid.Column="1" Grid.Row="2"/>
+                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Team.ShortName}" Grid.Column="1" Grid.Row="2"/>
 
                     <TextBlock Text="City:" Grid.Row="3"/>
-                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Team.city}" Grid.Column="1" Grid.Row="3"/>
+                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Team.City}" Grid.Column="1" Grid.Row="3"/>
 
                     <TextBlock Text="NBA Franchise:" Grid.Row="4"/>
-                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Team.nbaFranchise, Converter={StaticResource IntToStringConverter}}" Grid.Column="1" Grid.Row="4"/>
+                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Team.NBAFranchise, Converter={StaticResource IntToStringConverter}}" Grid.Column="1" Grid.Row="4"/>
 
                     <TextBlock Text="Allstar:" Grid.Row="5"/>
-                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Team.allStar, Converter={StaticResource IntToStringConverter}}" Grid.Column="1" Grid.Row="5"/>
+                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Team.AllStar, Converter={StaticResource IntToStringConverter}}" Grid.Column="1" Grid.Row="5"/>
                 </Grid>
             </Border>
         </Grid>
@@ -74,20 +74,20 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <Image x:Name="hTeamImg" Source="{Binding ElementName=infoWindow, Path=Game.hTeam.logo}"/>
+                    <Image x:Name="hTeamImg" Source="{Binding ElementName=infoWindow, Path=Game.HTeam.Logo}"/>
                     <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" Margin="0,10,0,0">
-                        <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding ElementName=infoWindow, Path=Game.hTeam.shortName}" />
+                        <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding ElementName=infoWindow, Path=Game.HTeam.ShortName}" />
                         <TextBlock Style="{StaticResource TextBlockStyle}" Text=" - "/>
-                        <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding ElementName=infoWindow, Path=Game.hTeam.score.points}" />
+                        <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding ElementName=infoWindow, Path=Game.HTeam.Score.Points}" />
                     </StackPanel>
 
                     <TextBlock Grid.Column="1" Grid.RowSpan="2" Text="V" VerticalAlignment="Center" Margin="20,0,20,0" />
 
-                    <Image x:Name="vTeamImg" Grid.Column="2" Source="{Binding ElementName=infoWindow, Path=Game.vTeam.logo}"/>
+                    <Image x:Name="vTeamImg" Grid.Column="2" Source="{Binding ElementName=infoWindow, Path=Game.VTeam.Logo}"/>
                     <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" Margin="0,10,0,0">
-                        <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding ElementName=infoWindow, Path=Game.vTeam.shortName}" />
+                        <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding ElementName=infoWindow, Path=Game.VTeam.ShortName}" />
                         <TextBlock Style="{StaticResource TextBlockStyle}" Text=" - "/>
-                        <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding ElementName=infoWindow, Path=Game.vTeam.score.points}" />
+                        <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding ElementName=infoWindow, Path=Game.VTeam.Score.Points}" />
                     </StackPanel>
                 </Grid>
             </Border>
@@ -110,22 +110,22 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBlock Text="Arena:" Grid.Row="1"/>
-                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Game.arena}" Grid.Column="1" Grid.Row="1"/>
+                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Game.Arena}" Grid.Column="1" Grid.Row="1"/>
 
                     <TextBlock Text="City:" Grid.Row="2"/>
-                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Game.city}" Grid.Column="1" Grid.Row="2"/>
+                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Game.City}" Grid.Column="1" Grid.Row="2"/>
 
                     <TextBlock Text="Start Time:" Grid.Row="3"/>
-                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Game.startTimeUTC, Converter={StaticResource FormatDateTimeConverter}}" Grid.Column="1" Grid.Row="3"/>
+                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Game.StartTimeUTC, Converter={StaticResource FormatDateTimeConverter}}" Grid.Column="1" Grid.Row="3"/>
 
                     <TextBlock Text="End Time:" Grid.Row="4"/>
-                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Game.endTimeUTC, Converter={StaticResource FormatDateTimeConverter}}" Grid.Column="1" Grid.Row="4"/>
+                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Game.EndTimeUTC, Converter={StaticResource FormatDateTimeConverter}}" Grid.Column="1" Grid.Row="4"/>
 
                     <TextBlock Text="Duration:" Grid.Row="5"/>
-                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Game.gameDuration, Converter={StaticResource FormatMinutesConverter}}" Grid.Column="1" Grid.Row="5"/>
+                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Game.GameDuration, Converter={StaticResource FormatMinutesConverter}}" Grid.Column="1" Grid.Row="5"/>
 
                     <TextBlock Text="Season Year:" Grid.Row="6"/>
-                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Game.seasonYear}" Grid.Column="1" Grid.Row="6"/>
+                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Game.SeasonYear}" Grid.Column="1" Grid.Row="6"/>
                 </Grid>
             </Border>
         </Grid>
@@ -163,35 +163,35 @@
                     <TextBlock Text="{Binding ElementName=infoWindow, Path=Player, Converter={StaticResource PlayerFullNameConverter}}" Grid.Column="1"/>
 
                     <TextBlock Text="Date of Birth:" Grid.Row="1"/>
-                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Player.dateofBirth}" Grid.Column="1" Grid.Row="1"/>
+                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Player.DateOfBirth}" Grid.Column="1" Grid.Row="1"/>
 
                     <TextBlock Text="Age:" Grid.Row="2"/>
-                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Player.dateofBirth, Converter={StaticResource DOBToAgeConverter}}" Grid.Column="1" Grid.Row="2"/>
+                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Player.DateOfBirth, Converter={StaticResource DOBToAgeConverter}}" Grid.Column="1" Grid.Row="2"/>
 
                     <TextBlock Text="Country:" Grid.Row="3"/>
-                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Player.country}" Grid.Column="1" Grid.Row="3"/>
+                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Player.Country}" Grid.Column="1" Grid.Row="3"/>
 
                     <TextBlock Text="Height:" Grid.Row="4"/>
                     <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="4">
-                        <TextBlock Text="{Binding ElementName=infoWindow, Path=Player.heightInMeters}" />
+                        <TextBlock Text="{Binding ElementName=infoWindow, Path=Player.HeightInMeters}" />
                         <TextBlock Text="m" />
                     </StackPanel>
 
                     <TextBlock Text="Weight:" Grid.Row="5"/>
                     <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="5">
-                        <TextBlock Text="{Binding ElementName=infoWindow, Path=Player.weightinKilograms}" />
+                        <TextBlock Text="{Binding ElementName=infoWindow, Path=Player.WeightInKilograms}" />
                         <TextBlock Text="kg"/>
                     </StackPanel>
 
                     <TextBlock Text="College Name:" Grid.Row="6"/>
-                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Player.collegeName}" Grid.Column="1" Grid.Row="6"/>
+                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Player.CollegeName}" Grid.Column="1" Grid.Row="6"/>
 
                     <TextBlock Text="Started NBA:" Grid.Row="7"/>
-                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Player.startNba}" Grid.Column="1" Grid.Row="7"/>
+                    <TextBlock Text="{Binding ElementName=infoWindow, Path=Player.StartNBA}" Grid.Column="1" Grid.Row="7"/>
 
                     <TextBlock Text="Played Pro:" Grid.Row="8"/>
                     <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="8">
-                        <TextBlock Text="{Binding ElementName=infoWindow, Path=Player.yearsPro}"/>
+                        <TextBlock Text="{Binding ElementName=infoWindow, Path=Player.YearsPro}"/>
                         <TextBlock Text=" years"/>
                     </StackPanel>
                 </Grid>

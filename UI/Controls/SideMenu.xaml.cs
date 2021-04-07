@@ -1,5 +1,6 @@
 ﻿using FLAGS_NBA.Model;
 using FLAGS_NBA.UI.Windows;
+using FLAGS_NBA.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -118,18 +119,25 @@ namespace FLAGS_NBA.UI.Controls
 
             if (GamesPage != null && CurrentPage is GamesPage)
             {
-                GamesPage.Games = RequestHelper.GetGames(searchText);
+                GameViewModel gameVM = new GameViewModel();
+                gameVM.Games = RequestHelper.GetGames(searchText);
+                gameVM.SearchDate = searchText;
+                GamesPage.DataContext = gameVM;
             }
             else if (TeamsPage != null && CurrentPage is TeamsPage)
             {
+                TeamViewModel teamVM = new TeamViewModel();
                 //Used this approach to make it more efficient and minimise sending requests to API
-                teamsPage.Teams = SearchHelper.SearchTeams(searchText, teamsPage.AllTeams);
+                teamVM.Teams = SearchHelper.SearchTeams(searchText, teamVM.AllTeams);
+                TeamsPage.DataContext = teamVM;
 
                 //TeamsPage.Teams = RequestHelper.GetTeams(searchText);
             }
             else if (PlayersPage != null && CurrentPage is PlayersPage)
             {
-                PlayersPage.Players = RequestHelper.GetPlayers(searchText);
+                PlayerViewModel playerVM = new PlayerViewModel();
+                playerVM.Players = RequestHelper.GetPlayers(searchText);
+                PlayersPage.DataContext = playerVM;
             }
         }
     }

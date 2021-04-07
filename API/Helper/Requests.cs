@@ -1,5 +1,5 @@
 ﻿using FLAGS_NBA.API.Enum;
-using FLAGS_NBA.API.Objects;
+using FLAGS_NBA.Model;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;

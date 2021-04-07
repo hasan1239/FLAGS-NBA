@@ -16,7 +16,7 @@
 
         <Border Style="{StaticResource Border_Standard}" Grid.Row="1" Margin="0,10,0,0">
             <ScrollViewer>
-                <ItemsControl ItemsSource="{Binding ElementName=teamsPage, Path=Teams, Mode=OneWay}">
+                <ItemsControl ItemsSource="{Binding Teams}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <UniformGrid Columns="4"/>
@@ -46,8 +46,8 @@
                                                                         <ColumnDefinition Width="Auto"/>
                                                                     </Grid.ColumnDefinitions>
 
-                                                                    <Image Source="{Binding logo, Converter={StaticResource MissingImageConverter}}" HorizontalAlignment="Left" Height="50"/>
-                                                                    <TextBlock Text="{Binding fullName}" Style="{StaticResource TextBlockStyle}" Margin="10,15,0,0" Grid.Column="1"/>
+                                                                    <Image Source="{Binding Logo, Converter={StaticResource MissingImageConverter}}" HorizontalAlignment="Left" Height="50"/>
+                                                                    <TextBlock Text="{Binding FullName}" Style="{StaticResource TextBlockStyle}" Margin="10,15,0,0" Grid.Column="1"/>
                                                                 </Grid>
                                                             </Grid>
                                                         </Border>

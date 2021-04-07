@@ -88,13 +88,13 @@
     <Compile Include="API\Enum\TargetTypes.cs" />
     <Compile Include="API\Helper\EnumMapper.cs" />
     <Compile Include="API\Helper\Requests.cs" />
-    <Compile Include="API\Objects\Game.cs" />
-    <Compile Include="API\Objects\League.cs" />
-    <Compile Include="API\Objects\Player.cs" />
-    <Compile Include="API\Objects\Team.cs" />
-    <Compile Include="Model\RequestHelper.cs" />
-    <Compile Include="Model\SearchHelper.cs" />
-    <Compile Include="Model\Switcher.cs" />
+    <Compile Include="Helper\RequestHelper.cs" />
+    <Compile Include="Helper\SearchHelper.cs" />
+    <Compile Include="Helper\Switcher.cs" />
+    <Compile Include="Model\BaseModel.cs" />
+    <Compile Include="Model\Game.cs" />
+    <Compile Include="Model\Player.cs" />
+    <Compile Include="Model\Team.cs" />
     <Compile Include="UI\Controls\Footer.xaml.cs">
       <DependentUpon>Footer.xaml</DependentUpon>
     </Compile>
@@ -123,6 +123,10 @@
     <Compile Include="UI\Windows\WelcomePage.xaml.cs">
       <DependentUpon>WelcomePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\GameViewModel.cs" />
+    <Compile Include="ViewModel\PlayerViewModel.cs" />
+    <Compile Include="ViewModel\TeamViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -289,5 +293,6 @@
   <ItemGroup>
     <Resource Include="app_icon.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

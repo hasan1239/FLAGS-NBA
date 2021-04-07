@@ -1,4 +1,4 @@
-﻿using FLAGS_NBA.API.Objects;
+﻿using FLAGS_NBA.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -63,17 +63,17 @@ namespace FLAGS_NBA.UI.Windows
             {
                 if (IsTeam)
                 {
-                    return Team.fullName;
+                    return Team.FullName;
                 }
                 
                 if (IsPlayer)
                 {
-                    return Player.firstName + " " + Player.lastName;
+                    return Player.FirstName + " " + Player.LastName;
                 }
 
                 if (IsGame)
                 {
-                    return Game.hTeam.shortName + "v" + Game.vTeam.shortName;
+                    return Game.HTeam.ShortName + "v" + Game.VTeam.ShortName;
                 }
 
                 return string.Empty;
@@ -85,7 +85,7 @@ namespace FLAGS_NBA.UI.Windows
             this.team = team;
             InitializeComponent();
 
-            if (string.IsNullOrEmpty(team.logo))
+            if (string.IsNullOrEmpty(team.Logo))
             {
                 teamImg.Source = new BitmapImage(new Uri(@"..\..\Images\Icons\basketball_players.png", UriKind.Relative));
             }
@@ -102,12 +102,12 @@ namespace FLAGS_NBA.UI.Windows
             this.game = game;
             InitializeComponent();
 
-            if (string.IsNullOrEmpty(game.hTeam.logo))
+            if (string.IsNullOrEmpty(game.HTeam.Logo))
             {
                 hTeamImg.Source = new BitmapImage(new Uri(@"..\..\Images\Icons\basketball_players.png", UriKind.Relative));
             }
 
-            if (string.IsNullOrEmpty(game.vTeam.logo))
+            if (string.IsNullOrEmpty(game.VTeam.Logo))
             {
                 vTeamImg.Source = new BitmapImage(new Uri(@"..\..\Images\Icons\basketball_players.png", UriKind.Relative));
             }
